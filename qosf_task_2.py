@@ -4,15 +4,15 @@ import torch
 
 # input Bloch vector
 x = torch.tensor([[0., 0., -1.],
-				   [0., 0., 1.],
-				   [0., 0., 1.],
-				   [0., 0., 1.]])
+	          [0., 0., 1.],
+		  [0., 0., 1.],
+		  [0., 0., 1.]])
 
 # target Bloch vector
 y = torch.tensor([[0., 0., 1.],
-				  [0., 0., 1.],
-				  [0., 0., -1.],
-				  [0., 0., -1.]])
+		  [0., 0., 1.],
+		  [0., 0., -1.],
+		  [0., 0., -1.]])
 
 # array of Pauli matrices
 Paulis = torch.zeros([3, 2, 2], dtype=torch.complex128, requires_grad=False)
