@@ -53,9 +53,9 @@ Once trained for this specific dataset, it is possible to use the following stat
 
 ```markdown
 [[0., 0., -1.],
- [0., 0., -.],
- [0., 0., -.],
- [0., 0., -.]]
+ [0., 0., -1.],
+ [0., 0., -1.],
+ [0., 0., -1.]]
 -> |1111>
 ```
 
