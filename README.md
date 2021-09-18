@@ -47,4 +47,30 @@ Prediction Bloch vector =
  [ 6.5838e-02, -3.5558e-04, -9.9783e-01]]
 ```
 
-This result is given for a cost of 2% for each measurement of the different qubits.
+This result is given for a cost of 2% for each measurement of the different qubits given by the Pauli matrices on each axis.
+
+Once trained for this specific dataset, it is possible to use the following state to test the model on unseen data.
+
+```markdown
+[[0., 0., -1.],
+ [0., 0., -.],
+ [0., 0., -.],
+ [0., 0., -.]]
+-> |1111>
+```
+
+The result is the following state which is close to one of the output states from the dataset.
+
+```markdown
+Test Bloch vector =
+[[ 0.0346,  0.0341, -0.9988],
+ [ 0.0389,  0.0379, -0.9985],
+ [ 0.0437, -0.0421,  0.9982],
+ [ 0.0490, -0.0469,  0.9977]]
+ ```
+
+An explanation is that the model chooses an output state based on how much the input state is similar to one of the input states from the dataset. It means the model has totally overfitted the data to perfectly give the desired output based on the corresponding input. Thus when given another different state, the model tries to map it to an output state based on how close the input might be from a state in the dataset. In this case, the model mapped it as follows.
+
+```markdown
+circuit(|1111>) ~ circuit(|0001>) = |1100>
+```
