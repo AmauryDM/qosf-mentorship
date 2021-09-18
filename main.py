@@ -165,3 +165,16 @@ for epoch in range(epochs):
 for i in range(len(X)):
 	print("Target Bloch vector =\n", Y[i])
 	print("Prediction Bloch vector =\n", predictions[i])
+
+# test with different state
+test_input = torch.tensor([[0., 0., -1.],
+			   [0., 0., -1.],
+			   [0., 0., -1.],
+			   [0., 0., -1.]])
+
+test_output = torch.zeros((nr_qubits, 3))
+for r in range(nr_qubits):
+	for c in range(3):
+		test_output[r][c] = circuit(test_input, best_params, Paulis[c])[r]
+
+print("Test Bloch vector =\n", test_output)
